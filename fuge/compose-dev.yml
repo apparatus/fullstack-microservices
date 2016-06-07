@@ -1,0 +1,16 @@
+frontend:
+  build: ../site/
+  container_name: site
+api:
+  build: ../api/
+  container_name: api
+
+service1:
+  build: ../service1/
+  container_name: service1
+service2:
+  build: ../service2/
+  container_name: service2
+activity:
+  build: ../activity/
+  container_name: activity

@@ -1,0 +1,36 @@
+{
+  "name": "api",
+  "description": "my awesome site",
+  "keywords": [
+    "awesome",
+    "site"
+  ],
+  "version": "0.1.0",
+  "main": "./index.js",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "chairo": "^2.0.0",
+    "good": "^6.4.0",
+    "good-console": "^5.1.0",
+    "hapi": ">=11.x.x"
+  },
+  "repository": {
+    "private": true
+  },
+  "scripts": {
+    "lint": "jshint **/*.js",
+    "test": "jshint **/*.js && tape test/*Test.js",
+    "coverage": "istanbul cover tape test/*Test.js && open ./coverage/lcov-report/index.html",
+    "coverage-check": "istanbul cover tape test/*Test.js && istanbul check-coverage",
+    "commit-check": "jshint **/*.js && istanbul cover tape test/*Test.js && istanbul check-coverage"
+  },
+  "pre-commit": [
+    "commit-check"
+  ],
+  "devDependencies": {
+    "pre-commit": "^1.1.1",
+    "tape": "^4.2.0"
+  }
+}

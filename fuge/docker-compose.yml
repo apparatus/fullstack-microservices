@@ -1,0 +1,24 @@
+frontend:
+  build: ../site/
+  container_name: site
+  env_file: './env'
+  ports:
+    - 10000:20000
+api:
+  build: ../api/
+  container_name: api
+  env_file: './env'
+  ports:
+    - 10001:20001
+service1:
+  build: ../service1/
+  container_name: service1
+  env_file: './env'
+  ports:
+    - 10002:20002
+service2:
+  build: ../service2/
+  container_name: service2
+  env_file: './env'
+  ports:
+    - 10003:20003
