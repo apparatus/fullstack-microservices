@@ -1,9 +1,20 @@
+# Spike 1.1
+
+* introduces [lucius](http://npm.im/lucius) - browser-side seneca microservices
+* removes the need to export script from component (pattern matching etc. replaces this approach)
+* enforces idea of microservice pattern matching across browser and server
+
+
+## Previous Spikes
+
 # Spike 1
 
 * Simplest most common libs possible
 * jQuery
 * bootstrap
 * ignores the styling issue
+
+
 
 
 ## Planned Spikes
