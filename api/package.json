@@ -11,6 +11,7 @@
     "node": "*"
   },
   "dependencies": {
+    "boom": "^3.2.1",
     "chairo": "^2.0.0",
     "good": "^6.4.0",
     "good-console": "^5.1.0",

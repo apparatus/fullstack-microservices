@@ -1,4 +1,5 @@
 'use strict';
+var Boom = require('boom')
 
 module.exports = function(server) {
   server.register(require('chairo'), function(err) {
@@ -24,69 +25,17 @@ module.exports = function(server) {
 
     server.route({
       method: 'GET',
-      path: '/activity/component',
-      handler: function(request, reply) {
-        seneca.act({role: 'activity', cmd: 'component'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
+      path: '/{role}/{cmd}',
+      handler: function(req, reply) {
+        seneca.act({role: req.params.role, cmd: req.params.cmd}, function(err, res) {
+          if (err) {
+            reply(Boom.wrap(err, !isNaN(err.code) ? err.code : 400, err.message));
+            return
+          }
+          reply(res);
         });
       }
     });
 
-    server.route({
-      method: 'GET',
-      path: '/service1/component',
-      handler: function(request, reply) {
-        seneca.act({role: 'service1', cmd: 'component'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
-
-    server.route({
-      method: 'GET',
-      path: '/service2/component',
-      handler: function(request, reply) {
-        seneca.act({role: 'service2', cmd: 'component'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
-
-    server.route({
-      method: 'GET',
-      path: '/service1/action1',
-      handler: function(request, reply) {
-        seneca.act({role: 'service1', cmd: 'action1'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
-    server.route({
-      method: 'GET',
-      path: '/service1/action2',
-      handler: function(request, reply) {
-        seneca.act({role: 'service1', cmd: 'action2'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
-    server.route({
-      method: 'GET',
-      path: '/service2/action1',
-      handler: function(request, reply) {
-        seneca.act({role: 'service2', cmd: 'action1'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
-    server.route({
-      method: 'GET',
-      path: '/service2/action2',
-      handler: function(request, reply) {
-        seneca.act({role: 'service2', cmd: 'action2'}, function(err, res) {
-          reply({result: err ? 'error' : res, err: err});
-        });
-      }
-    });
   });
 };

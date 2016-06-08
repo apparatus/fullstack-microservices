@@ -6,21 +6,18 @@
     function done() { if (++count > 2) cb(); }
     function error(e) { return '<p> Error: ' + e.msg + '</p>'; }
 
-    seneca.act({role: 'service1', cmd: 'component'}, function (err, res) {
-      var cmp = res.result;
-      $('#s1-wrap').html(res.err ? error(res.err) : cmp.html);
+    seneca.act({role: 'service1', cmd: 'component'}, function (err, cmp) {
+      $('#s1-wrap').html(err ? error(err) : cmp.html);
       done();
     });
 
-    seneca.act({role: 'service2', cmd: 'component'}, function (err, res) {
-      var cmp = res.result;
-      $('#s2-wrap').html(res.err ? error(res.err) : cmp.html);
+    seneca.act({role: 'service2', cmd: 'component'}, function (err, cmp) {
+      $('#s2-wrap').html(err ? error(err) : cmp.html);
       done();
     });
 
-    seneca.act({role: 'activity', cmd: 'component'}, function (err, res) {
-      var cmp = res.result;
-      $('#activity-wrap').html(res.err ? error(res.err) : cmp.html);
+    seneca.act({role: 'activity', cmd: 'component'}, function (err, cmp) {
+      $('#activity-wrap').html(err ? error(err) : cmp.html);
       done();
     });
   }

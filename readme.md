@@ -1,3 +1,9 @@
+# Spike 1.2
+
+* normalize error handling
+  * i.e. all errors come through callback first param, instead of potentially in response objects
+* simplify services.js 
+
 # Spike 1.1
 
 * introduces [lucius](http://npm.im/lucius) - browser-side seneca microservices
