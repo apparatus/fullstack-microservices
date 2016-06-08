@@ -4,23 +4,23 @@
   function assemble(cb) {
     var count = 0
     function done() { if (++count > 2) cb(); }
-    function err(e) { return '<p> Error: ' + e.msg + '</p>'; }
+    function error(e) { return '<p> Error: ' + e.msg + '</p>'; }
 
     seneca.act({role: 'service1', cmd: 'component'}, function (err, res) {
       var cmp = res.result;
-      $('#s1-wrap').html(res.err ? err(res.err) : cmp.html);
+      $('#s1-wrap').html(res.err ? error(res.err) : cmp.html);
       done();
     });
 
     seneca.act({role: 'service2', cmd: 'component'}, function (err, res) {
       var cmp = res.result;
-      $('#s2-wrap').html(res.err ? err(res.err) : cmp.html);
+      $('#s2-wrap').html(res.err ? error(res.err) : cmp.html);
       done();
     });
 
     seneca.act({role: 'activity', cmd: 'component'}, function (err, res) {
       var cmp = res.result;
-      $('#activity-wrap').html(res.err ? err(res.err) : cmp.html);
+      $('#activity-wrap').html(res.err ? error(res.err) : cmp.html);
       done();
     });
   }
