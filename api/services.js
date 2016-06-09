@@ -32,10 +32,12 @@ module.exports = function(server) {
             reply(Boom.wrap(err, !isNaN(err.code) ? err.code : 400, err.message));
             return
           }
-          reply(res);
+          reply(req.params.cmd === 'component' ? res.html : res);
         });
       }
     });
+
+
 
   });
 };

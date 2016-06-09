@@ -28,6 +28,7 @@ module.exports = function(server) {
         reply.view('basic');
       }
     });
+
   });
 };
 
