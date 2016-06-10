@@ -1,0 +1,3 @@
+.action {
+  @apply(--service2-btn);
+}

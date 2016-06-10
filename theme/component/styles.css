@@ -1,0 +1,13 @@
+
+/* define service component css mixins */
+
+:root {
+  --service1-btn: {
+    background: cornflowerblue;
+    color: white;
+  };
+  --service2-btn: {
+    background: salmon;
+    color: white;
+  };
+}

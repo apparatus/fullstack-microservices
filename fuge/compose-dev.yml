@@ -4,7 +4,9 @@ frontend:
 api:
   build: ../api/
   container_name: api
-
+theme:
+  build: ../theme/
+  container_name: theme
 service1:
   build: ../service1/
   container_name: service1

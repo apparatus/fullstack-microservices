@@ -1,3 +1,15 @@
+# Spike 2.1
+
+* addresses styling
+* components use material design polymer components, with neutral styling
+* component styles use the [css-apply-rule](https://tabatkins.github.io/specs/css-apply-rule/) to declare expected mixin names, e.g. `.action { @apply(--service2-btn); }`
+* the new theme service supplies a component that defines relevant mixins
+* theme component can then by imported as a [shared style](https://www.polymer-project.org/1.0/docs/devguide/styling#style-modules) to both the app and other components
+  * currently just imported into app
+* this approach gives us modular, composable CSS that can be broken down to an app, page, component or element basis
+* the only tricky part is knowing the css mixin namespaces of each service, we can handle this by exposing a service action that returns relevant mixin names for a service component, and setting up namespace mixin aggregation service, which allows us to do things like, quickly create a style theme template, check available mixin namespaces against current defined mixing, etc.
+
+
 # Spike 2
 
 * polymer

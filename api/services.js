@@ -7,6 +7,12 @@ module.exports = function(server) {
 
     seneca.client({
       host: process.env.PROXY_HOST,
+      port: process.env.theme_PORT,
+      pin: 'role:theme'
+    });
+
+    seneca.client({
+      host: process.env.PROXY_HOST,
       port: process.env.service1_PORT,
       pin: 'role:service1'
     });
