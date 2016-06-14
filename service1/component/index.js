@@ -11,7 +11,7 @@ function component(args) {
   return {
     html: `
       ${dependencies}
-      <dom-module id="${args.role}-cmp">
+      <dom-module id="${args.ns}-cmp">
         <template>
           ${template}
           <style>
@@ -19,7 +19,7 @@ function component(args) {
           </style>
         </template>
         <script>
-          ${(definition + '').replace(/:role/, args.role + '-cmp')}
+          ${(definition + '').replace(/:ns/, args.ns + '-cmp')}
         </script>
       </dom-module>
     `

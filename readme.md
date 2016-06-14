@@ -1,3 +1,9 @@
+# Spike 3
+
+* finding the mu api ideal
+
+## Previous Spikes
+
 # Spike 2.1
 
 * addresses styling
@@ -25,8 +31,6 @@
 * components trigger actions based on user interaction (see service1/component)
 * the component itself has `add`, `act` (uses lucius-polymer to do this, may break that into it's own module)
 
-## Previous Spikes
-
 # Spike 1.2
 
 * normalize error handling
@@ -48,26 +52,3 @@
 * bootstrap
 * ignores the styling issue
 
-
-## Planned Spikes
-
-# Spike 2.2
-
-* this time encapsulate styles
-* separate structure from skin
-
-# Spike 2.3
-
-* use public polymer components / material design
-
-
-### Spike 3
-
-* react
-* react-bootstrap with css modules...
-* etc.
-* possibly include a Spike 3.5 with a react-native example for mobile
-
-### Spike 4
-
-* minimalism with vanilla JS and vdom

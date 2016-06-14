@@ -1,5 +1,5 @@
 Polymer({
-  is: ':role',
+  is: ':ns',
    properties: {
     entries: {
       type: Array,
@@ -9,7 +9,7 @@ Polymer({
   },
   ready: function () {
     var cmp = this;
-    cmp.add({role: 'activity', cmd: 'entry'}, function (args, cb) {
+    cmp.define({ns: 'activity', cmd: 'entry'}, function (args, cb) {
       var info = args.info;
       cmp.push('entries', {
         service: info.service,

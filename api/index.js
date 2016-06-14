@@ -1,7 +1,7 @@
 'use strict';
 
 var Hapi = require('hapi');
-var services = require('./services');
+var router = require('./router');
 
 var server = new Hapi.Server();
 
@@ -10,7 +10,7 @@ server.connection({
   host: process.env.SERVICE_HOST
 });
 
-services(server);
+server.register(router);
 
 server.register({
   register: require('good'),

@@ -7,7 +7,7 @@ var style = fs.readFileSync(path.join(__dirname, 'styles.css'))
 function component(args) {
   return {
     html: `
-      <dom-module id="${args.role}-css">
+      <dom-module id="${args.ns}-css">
         <template>
           <style>
             ${style}
