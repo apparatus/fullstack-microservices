@@ -1,36 +1,23 @@
-module.exports = component
-
-function component(args) {
-  return {
-    html: `
-      <div class="panel panel-success">
-          <div class="panel-heading">
-            <h3 class="panel-title">Activity</h3>
+export default ({React, mu: {add, act}}) => (props) => (
+  <div className={props.styles.panel}>
+    <div className={props.styles.header}>
+      <h3 className={props.styles.title}>Activity</h3>
+    </div>
+    <div className={props.styles.body}>
+      {
+        props.entries.map((entry) => (
+          <div className={props.styles.list}> 
+            <a href="#" className={props.styles.item}> 
+              <h4 className={props.styles.itemHeading}> 
+                {entry.service} {entry.action} Poked
+              </h4> 
+              <pre className={props.styles.itemText}>
+                {JSON.stringify(entry.result, null, 2)}
+              </pre>
+            </a>
           </div>
-          <div id="output" class="panel-body">
-          </div>
-        </div>
-      </div>
-    `,
-    script: function (jqEl) {
-
-      return function output(info, result) {
-        var service = info.service;
-        var action = info.action;
-        var entry = 
-          '<div class="list-group">' +
-            '<a href="#" class="list-group-item">' +
-              '<h4 class="list-group-item-heading">' +
-                service + ' ' + action + ' Poked</h4>' +
-              '<pre class="list-group-item-text">' +
-                JSON.stringify(result, null, 2) +
-              '</pre>' +
-            '</a>' +
-          '</div>';
-        jqEl.prepend(entry);
+        ))
       }
-
-    }.toString()
-    
-  }
-}
+    </div>
+  </div>
+)

@@ -23,16 +23,44 @@ module.exports = function(server) {
       pin: 'role:activity'
     });
 
+    seneca.client({
+      host: process.env.PROXY_HOST,
+      port: process.env.ui_PORT,
+      pin: 'role:ui'
+    });
+
+    seneca.client({
+      host: process.env.PROXY_HOST,
+      port: process.env.theme_PORT,
+      pin: 'role:theme'
+    });
+
     server.route({
       method: 'GET',
       path: '/{role}/{cmd}',
       handler: function(req, reply) {
         seneca.act({role: req.params.role, cmd: req.params.cmd}, function(err, res) {
+          console.log(err, res)
           if (err) {
             reply(Boom.wrap(err, !isNaN(err.code) ? err.code : 400, err.message));
             return
           }
           reply(res);
+        });
+      }
+    });
+
+    server.route({
+      method: 'GET',
+      path: '/{role}/{cmd}.js',
+      handler: function(req, reply) {
+        seneca.act({role: req.params.role, cmd: req.params.cmd}, function(err, res) {
+          console.log(err, res)
+          if (err) {
+            reply(Boom.wrap(err, !isNaN(err.code) ? err.code : 400, err.message));
+            return
+          }
+          reply(res.component);
         });
       }
     });

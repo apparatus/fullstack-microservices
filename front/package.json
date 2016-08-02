@@ -1,0 +1,25 @@
+{
+  "name": "front",
+  "description": "static and proxy",
+  "version": "1.0.0",
+  "dependencies": {
+    "bouncy": "^3.2.2",
+    "http-proxy": "^1.14.0",
+    "pino-http": "^1.0.8",
+    "pino-http-print": "^1.0.0",
+    "st": "^1.2.0"
+  },
+  "repository": {
+    "private": true
+  },
+  "scripts": {
+    "test": "standard",
+    "commit-check": "npm test"
+  },
+  "pre-commit": [
+    "commit-check"
+  ],
+  "devDependencies": {
+    "pre-commit": "^1.1.1"
+  }
+}

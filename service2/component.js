@@ -1,21 +1,35 @@
-module.exports = component;
-
-function component(args) {
-
-  return {
-    html: `
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Service 2</h3>
-        </div>
-        <div class="panel-body">
-          <div class="list-group">
-            <button  data-service="Service 2" data-action="Action 1" id="s2a1" type="button" class="list-group-item">Action 1</button>
-            <button  data-service="Service 2" data-action="Action 2" id="s2a2" type="button" class="list-group-item">Action 2</button>
+export default ({React, mu: {add, act}}) => {
+  class Service2 extends React.Component {
+    action(act, n) {
+      act({role: 'service2', cmd: 'action' + n}, (err, result) => {
+        act({
+          role: 'activity', 
+          cmd: 'entry', 
+          info: {service: 'Service 2', action: 'Action ' + n},
+          result: result
+        })
+      })
+    }
+    render() {
+      var styles = this.props.styles
+      return (
+        <div className={styles.panel}>
+          <div className={styles.header}>
+            <h3 className={styles.title}>{this.props.name}</h3>
+          </div>
+          <div className={styles.body}>
+            <div className={styles.list}>
+              <button className={styles.item} onClick={() => this.action(act, 1)}>
+                Action 1
+              </button>
+              <button className={styles.item}  onClick={() => this.action(act, 2)}>
+                Action 2
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-   `
+      )
+    }
   }
-
+  return Service2
 }

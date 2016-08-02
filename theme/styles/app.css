@@ -1,0 +1,42 @@
+#content {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.header {
+  composes: page-header from './bootstrap.css';
+  margin-top: 10px;
+}
+
+.half {
+  composes: col-md-6 from './bootstrap.css';
+}
+
+.full {
+  composes: col-md-12 from './bootstrap.css';
+}
+
+.well {
+  composes: well from './boostrap.css';
+}
+
+#footer {
+  max-width: 1024px;
+  margin: 0 auto;
+  height: 5.3em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  padding-top: .625em;
+}
+
+#fuge {
+  float: right;
+}
+
+#logo {
+  width: 6em;
+  margin-bottom: .25em;
+}

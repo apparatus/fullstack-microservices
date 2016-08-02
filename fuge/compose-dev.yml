@@ -1,10 +1,15 @@
-frontend:
-  build: ../site/
-  container_name: site
+front:
+  build: ../front/
+  container_name: front
 api:
   build: ../api/
   container_name: api
-
+ui:
+  build: ../ui/
+  container_name: ui
+theme:
+  build: ../theme/
+  container_name: theme
 service1:
   build: ../service1/
   container_name: service1

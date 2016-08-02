@@ -1,6 +1,6 @@
 {
-  "name": "service1",
-  "description": "my awesome service",
+  "name": "theme",
+  "description": "theme styles service",
   "keywords": [
     "seneca",
     "service"
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "babel-core": "^6.10.4",
+    "css-modules-loader-core": "^1.0.0",
     "seneca": "^2.0.1"
   },
   "repository": {

@@ -1,0 +1,23 @@
+.panel {
+  composes: panel panel-info from './bootstrap.css';
+}
+
+.header {
+  composes: panel-heading from './bootstrap.css';
+}
+
+.title {
+  composes: panel-title from './bootstrap.css';
+}
+
+.body {
+  composes: panel-body from './bootstrap.css';
+}
+
+.list {
+  composes: list-group from './bootstrap.css';
+}
+
+.item {
+  composes: list-group-item from './bootstrap.css';
+}

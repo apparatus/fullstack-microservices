@@ -6,3 +6,4 @@ api_PORT=10001
 service1_PORT=10002
 service2_PORT=10003
 actiivty_PORT=10004
+ui_PORT=10005
